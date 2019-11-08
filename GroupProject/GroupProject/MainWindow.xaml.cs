@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Net.Http;
+using Newtonsoft.Json;
 
 //https://www.kaggle.com/theriley106/hq-trivia-question-database
 namespace GroupProject
@@ -25,6 +26,28 @@ namespace GroupProject
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ChooseBt_Click(object sender, RoutedEventArgs e)
+        {
+            string url = @"https://www.kaggle.com/theriley106/hq-trivia-question-database";
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                if(response.IsSuccessStatusCode)
+                {
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    var answer = JsonConvert.DeserializeObject<answers>(content);
+                }
+
+                foreach (var item in Answers.answer)
+                {
+                    AnswerLB.Items.Add(answer);
+                }
+
+            }
+                
+            
         }
     }
 }
