@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupProject
 {
-    class answers
+    class Questions
     {
-        public string text { get; set; }
-        public string correct { get; set; }
-        public char choice { get; set; }
-         
     }
 }

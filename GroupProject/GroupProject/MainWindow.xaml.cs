@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-//https://www.kaggle.com/theriley106/hq-trivia-question-database
 namespace GroupProject
 {
     /// <summary>
@@ -23,6 +22,8 @@ namespace GroupProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private object convert;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,20 +31,29 @@ namespace GroupProject
 
         private void ChooseBt_Click(object sender, RoutedEventArgs e)
         {
-            string url = @"https://www.kaggle.com/theriley106/hq-trivia-question-database";
+            string url = @"https://opentdb.com/api.php?amount=1";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = client.GetAsync(url).Result;
                 if(response.IsSuccessStatusCode)
                 {
                     var content = response.Content.ReadAsStringAsync().Result;
-                    var answer = JsonConvert.DeserializeObject<answers>(content);
+                    var question = JsonConvert.DeserializeObject<Results>(content);
+
+
+                    foreach (var result in question.results)
+                    {
+                        questionTB.AppendText(Convert.ToString(result.question));
+                    }
+
+                    foreach (var result in question.results)
+                    {
+                        AnswerLB.Items.Add(Convert.ToString(result.incorrect_answer[1]));
+                        //AnswerLB.Items.Add(Convert.ToString())
+                    }
+
                 }
 
-                foreach (var item in Answers.answer)
-                {
-                    AnswerLB.Items.Add(answer);
-                }
 
             }
                 
