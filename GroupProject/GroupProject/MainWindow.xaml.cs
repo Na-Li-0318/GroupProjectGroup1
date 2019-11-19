@@ -27,15 +27,12 @@ namespace GroupProject
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void ChooseBt_Click(object sender, RoutedEventArgs e)
-        {
             string url = @"https://opentdb.com/api.php?amount=1";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = client.GetAsync(url).Result;
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     var content = response.Content.ReadAsStringAsync().Result;
                     var question = JsonConvert.DeserializeObject<Results>(content);
@@ -62,6 +59,41 @@ namespace GroupProject
 
 
             }
+        }
+
+        private void ChooseBt_Click(object sender, RoutedEventArgs e)
+        {
+            //string url = @"https://opentdb.com/api.php?amount=1";
+            //using (HttpClient client = new HttpClient())
+            //{
+            //    HttpResponseMessage response = client.GetAsync(url).Result;
+            //    if(response.IsSuccessStatusCode)
+            //    {
+            //        var content = response.Content.ReadAsStringAsync().Result;
+            //        var question = JsonConvert.DeserializeObject<Results>(content);
+
+
+            //        foreach (var result in question.results)
+            //        {
+            //            questionTB.AppendText(Convert.ToString(result.question));
+            //            AnswerLB.Items.Add(Convert.ToString(result.correct_answer));
+            //        }
+
+            //        foreach (var result in question.results)
+            //        {
+            //            List<string> incorrect = new List<string>();
+            //            incorrect.Add(Convert.ToString(result.incorrect_answer));
+
+            //            foreach (var item in incorrect)
+            //            {
+            //                AnswerLB.Items.Add(incorrect);
+            //            }
+            //        }
+
+            //    }
+
+
+            //}
                 
             
         }
