@@ -44,12 +44,18 @@ namespace GroupProject
                     foreach (var result in question.results)
                     {
                         questionTB.AppendText(Convert.ToString(result.question));
+                        AnswerLB.Items.Add(Convert.ToString(result.correct_answer));
                     }
 
                     foreach (var result in question.results)
                     {
-                        AnswerLB.Items.Add(Convert.ToString(result.incorrect_answer[1]));
-                        //AnswerLB.Items.Add(Convert.ToString())
+                        List<string> incorrect = new List<string>();
+                        incorrect.Add(Convert.ToString(result.incorrect_answer));
+
+                        foreach (var item in incorrect)
+                        {
+                            AnswerLB.Items.Add(incorrect);
+                        }
                     }
 
                 }
