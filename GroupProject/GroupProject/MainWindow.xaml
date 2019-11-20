@@ -15,7 +15,7 @@
         <ListBox x:Name="CorrectLB" HorizontalAlignment="Left" Height="63" Margin="354,70,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" Opacity="0.65"/>
         <ListBox x:Name="StrikeLB" HorizontalAlignment="Left" Height="64" Margin="354,164,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontWeight="Bold" Opacity="0.65"/>
         <Label Content="Strikes:" HorizontalAlignment="Left" Margin="354,142,0,0" VerticalAlignment="Top" Width="133" FontFamily="Impact" Foreground="White" FontSize="16"/>
-        <Label Content="Correct:" HorizontalAlignment="Left" Margin="354,49,0,0" VerticalAlignment="Top" Width="133" FontFamily="Impact" Foreground="White" FontSize="16"/>
+        <Label Content="Score:" HorizontalAlignment="Left" Margin="354,49,0,0" VerticalAlignment="Top" Width="133" FontFamily="Impact" Foreground="White" FontSize="16"/>
         <Label Content="TRIVIA MANIA" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="204" Height="55" FontSize="36" FontFamily="Impact" Foreground="White"/>
     </Grid>
 </Window>
