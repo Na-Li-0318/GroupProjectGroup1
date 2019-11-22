@@ -58,29 +58,8 @@ namespace GroupProject
                             //Random rnd = new Random();
                             //int r = rnd.Next(Answers.Count);
                             AnswerLB.Items.Add(Answers[i]);
-                            //AnswerLB.Items.Add(Answers[1]);
-                            //AnswerLB.Items.Add(Answers[2]);
-                            //AnswerLB.Items.Add(Answers[3]);
                         }
                     }
-                  
-                
-
-                    //foreach (var result in question.results)
-                    //{
-                    //    List<string> incorrect = new List<string>();
-                    //    incorrect.Add(Convert.ToString(result.incorrect_answers[0]));
-                    //    incorrect.Add(Convert.ToString(result.incorrect_answers[1]));
-
-                    //    incorrect.Add(Convert.ToString(result.incorrect_answers[2]));
-
-
-                    //foreach (var item in Answers)
-                    //{
-                    //    AnswerLB.Items.Add(Answers);
-                    //}
-                    ////}
-
                 }
 
 
@@ -101,9 +80,10 @@ namespace GroupProject
                 {
                     if (AnswerLB.SelectedItem == correctAnswer)
                     {
-                        CorrectLB.Items.Add(scoreCorrect + accumulator);
+                        accumulator = scoreCorrect + accumulator;
+                        CorrectLB.Items.Add(accumulator);
                         questionsAsked++;
-                    break;
+                        break;
 
                     }
                     else
@@ -116,45 +96,14 @@ namespace GroupProject
                         {
                             MessageBox.Show($"Game Over... you hit three strikes. Your score is {accumulator}!");
                         }
-                    break;
+                        break;
                     }
+
+                    questionTB.Text = "";
+                    AnswerLB.Items.Clear();
                 } while (questionsAsked < 11 || strike < 3);
 
             MessageBox.Show($"Great job... you got through all 10 questions. Your end score is {accumulator}.");
-            
-            //string url = @"https://opentdb.com/api.php?amount=1";
-            //using (HttpClient client = new HttpClient())
-            //{
-            //    HttpResponseMessage response = client.GetAsync(url).Result;
-            //    if(response.IsSuccessStatusCode)
-            //    {
-            //        var content = response.Content.ReadAsStringAsync().Result;
-            //        var question = JsonConvert.DeserializeObject<Results>(content);
-
-
-            //        foreach (var result in question.results)
-            //        {
-            //            questionTB.AppendText(Convert.ToString(result.question));
-            //            AnswerLB.Items.Add(Convert.ToString(result.correct_answer));
-            //        }
-
-            //        foreach (var result in question.results)
-            //        {
-            //            List<string> incorrect = new List<string>();
-            //            incorrect.Add(Convert.ToString(result.incorrect_answer));
-
-            //            foreach (var item in incorrect)
-            //            {
-            //                AnswerLB.Items.Add(incorrect);
-            //            }
-            //        }
-
-            //    }
-
-
-            //}
-                
-            
         }
     }
 }
