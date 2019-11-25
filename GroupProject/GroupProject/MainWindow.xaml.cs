@@ -25,15 +25,24 @@ namespace GroupProject
     {
         private object convert;
 
+
+
         Results question = new Results();
         string correctAnswer;
+
+        int questionsAsked = 0;
+        int strikeAccum = 0;
+        int accumulator = 0;
+        const int scoreCorrect = 10;
+        int strike = 1;
+
 
         public MainWindow()
         {
          
             InitializeComponent();
 
-            string url = @"https://opentdb.com/api.php?amount=1";
+            string url = @"https://opentdb.com/api.php?amount=1&type=multiple";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = client.GetAsync(url).Result;
@@ -42,7 +51,7 @@ namespace GroupProject
                     var content = response.Content.ReadAsStringAsync().Result;
                     question = JsonConvert.DeserializeObject<Results>(content);
 
-
+                    
                     foreach (var result in question.results)
                     {
                         questionTB.AppendText(Convert.ToString(result.question));
@@ -53,10 +62,14 @@ namespace GroupProject
                         Answers.Add(Convert.ToString(result.incorrect_answers[2]));
 
                         correctAnswer = result.correct_answer;
-                        for (int i=0; i< Answers.Count; i++)
+
+                        //var rand  = new Random();
+                        //var res = Answers.OrderBy(item => rand);
+
+                        for (int i = 0; i < Answers.Count; i++)
                         {
-                            //Random rnd = new Random();
-                            //int r = rnd.Next(Answers.Count);
+                            Random rnd = new Random();
+                            int r = rnd.Next(Answers.Count);
                             AnswerLB.Items.Add(Answers[i]);
                         }
                     }
@@ -67,43 +80,81 @@ namespace GroupProject
          
         }
 
+
+
         private void ChooseBt_Click(object sender, RoutedEventArgs e)
         {
-            const int scoreCorrect = 10;
-            int accumulator = 0;
-            int strike = 0;
-            int strikeAccum = 0;
-            int questionsAsked = 0;
-            //using (MainWindow answer = new MainWindow())
-            //    answer.ShowDialog;
-                do
+            
+
+            do
                 {
-                    if (AnswerLB.SelectedItem == correctAnswer)
+                if ((string)AnswerLB.SelectedValue == correctAnswer)
                     {
                         accumulator = scoreCorrect + accumulator;
                         CorrectLB.Items.Add(accumulator);
                         questionsAsked++;
-                        break;
+                        //break;
 
                     }
                     else
                     {
-                        StrikeLB.Items.Add(strike + 1);
+                        StrikeLB.Items.Add(strike + strikeAccum);
                         strikeAccum++;
                         questionsAsked++;
                     
-                        if (strikeAccum == 3)
+                        //if (strikeAccum == 3)
+                        //{
+                        //    MessageBox.Show($"Game Over... you hit three strikes. Your score is {accumulator}!");
+                        //}
+                        //break;
+                    }
+                
+                questionTB.Text = "";
+                    AnswerLB.Items.Clear();
+
+                string url = @"https://opentdb.com/api.php?amount=1&type=multiple";
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = client.GetAsync(url).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var content = response.Content.ReadAsStringAsync().Result;
+                        question = JsonConvert.DeserializeObject<Results>(content);
+
+
+                        foreach (var result in question.results)
                         {
-                            MessageBox.Show($"Game Over... you hit three strikes. Your score is {accumulator}!");
+                            questionTB.AppendText(Convert.ToString(result.question));
+                            List<string> Answers = new List<string>();
+                            Answers.Add(Convert.ToString(result.correct_answer));
+                            Answers.Add(Convert.ToString(result.incorrect_answers[0]));
+                            Answers.Add(Convert.ToString(result.incorrect_answers[1]));
+                            Answers.Add(Convert.ToString(result.incorrect_answers[2]));
+
+                            correctAnswer = result.correct_answer;
+                            for (int i = 0; i < Answers.Count; i++)
+                            {
+                                //Random rnd = new Random();
+                                //int r = rnd.Next(Answers.Count);
+                                AnswerLB.Items.Add(Answers[i]);
+                            }
                         }
-                        break;
                     }
 
-                    questionTB.Text = "";
-                    AnswerLB.Items.Clear();
-                } while (questionsAsked < 11 || strike < 3);
 
-            MessageBox.Show($"Great job... you got through all 10 questions. Your end score is {accumulator}.");
+                }
+                break;
+
+            } while (questionsAsked < 11 || strikeAccum < 3);
+
+            if (questionsAsked == 10)
+            {
+                MessageBox.Show($"Great job... you got through all 10 questions. Your end score is {accumulator}.");
+            }
+            else if (strikeAccum == 3)
+            {
+                MessageBox.Show($"Game Over... you hit three strikes. Your score is {accumulator}!");
+            }
         }
     }
 }
