@@ -36,7 +36,9 @@ namespace GroupProject
         {
             InitializeComponent();
 
-            string url = @"https://opentdb.com/api.php?amount=1&type=multiple";
+            //
+
+            string url = @"https://opentdb.com/api.php?amount=1&category=9&type=multiple";
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = client.GetAsync(url).Result;
@@ -44,7 +46,7 @@ namespace GroupProject
                 {
                     var content = response.Content.ReadAsStringAsync().Result;
                     question = JsonConvert.DeserializeObject<Results>(content);
-
+                 
                     foreach (var result in question.results)
                     {
                         questionTB.AppendText(Convert.ToString(result.question));

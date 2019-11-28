@@ -8,12 +8,12 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid Background="#FF28C814">
         <Button x:Name="chooseBt" Content="Submit Answer" HorizontalAlignment="Left" Height="38" Margin="195,258,0,0" VerticalAlignment="Top" Width="143" Click="ChooseBt_Click" FontFamily="Impact" Foreground="#FF28C814" Background="White" FontSize="18"/>
-        <ListBox x:Name="AnswerLB" HorizontalAlignment="Left" Height="89" Margin="10,164,0,0" VerticalAlignment="Top" Width="328" FontFamily="Courier New" Opacity="0.65"/>
-        <TextBox x:Name="questionTB" HorizontalAlignment="Left" Height="63" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" FontFamily="Courier New" Opacity="0.65"/>
+        <ListBox x:Name="AnswerLB" HorizontalAlignment="Left" Height="89" Margin="10,164,0,0" VerticalAlignment="Top" Width="328" FontFamily="Corbel" Opacity="0.65"/>
+        <TextBox x:Name="questionTB" HorizontalAlignment="Left" Height="63" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" FontFamily="Corbel" Opacity="0.65"/>
         <Label x:Name="Question" Content="Question:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="98" FontFamily="Impact" Foreground="White" FontSize="16"/>
         <Label x:Name="Answer" Content="Answer Choices:" HorizontalAlignment="Left" Height="26" Margin="10,142,0,0" VerticalAlignment="Top" Width="123" FontFamily="Impact" Foreground="White" FontSize="16"/>
-        <ListBox x:Name="CorrectLB" HorizontalAlignment="Left" Height="63" Margin="354,70,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" Opacity="0.65"/>
-        <ListBox x:Name="StrikeLB" HorizontalAlignment="Left" Height="64" Margin="354,164,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontWeight="Bold" Opacity="0.65"/>
+        <ListBox x:Name="CorrectLB" HorizontalAlignment="Left" Height="63" Margin="354,70,0,0" VerticalAlignment="Top" Width="133" FontFamily="Corbel" Opacity="0.65"/>
+        <ListBox x:Name="StrikeLB" HorizontalAlignment="Left" Height="64" Margin="354,164,0,0" VerticalAlignment="Top" Width="133" FontFamily="Corbel" FontWeight="Bold" Opacity="0.65"/>
         <Label Content="Strikes:" HorizontalAlignment="Left" Margin="354,142,0,0" VerticalAlignment="Top" Width="133" FontFamily="Impact" Foreground="White" FontSize="16"/>
         <Label Content="Score:" HorizontalAlignment="Left" Margin="354,49,0,0" VerticalAlignment="Top" Width="133" FontFamily="Impact" Foreground="White" FontSize="16"/>
         <Label Content="TRIVIA MANIA" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="204" Height="55" FontSize="36" FontFamily="Impact" Foreground="White"/>
