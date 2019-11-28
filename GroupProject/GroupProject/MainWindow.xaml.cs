@@ -59,13 +59,20 @@ namespace GroupProject
 
                         correctAnswer = result.correct_answer;
 
-                        //var rand  = new Random();
-                        //var res = Answers.OrderBy(item => rand);
+                        var rand = new Random();
+
+                        int n = Answers.Count;
+                        while (n > 1)
+                        {
+                            n--;
+                            int k = rand.Next(n + 1);
+                            string value = Answers[k];
+                            Answers[k] = Answers[n];
+                            Answers[n] = value;
+                        }
 
                         for (int i = 0; i < Answers.Count; i++)
                         {
-                            Random rnd = new Random();
-                            int r = rnd.Next(Answers.Count);
                             AnswerLB.Items.Add(Answers[i]);
                         }
                     }
@@ -112,10 +119,20 @@ namespace GroupProject
                             Answers.Add(Convert.ToString(result.incorrect_answers[2]));
 
                             correctAnswer = result.correct_answer;
+                            var rand = new Random();
+
+                            int n = Answers.Count;
+                            while (n > 1)
+                            {
+                                n--;
+                                int k = rand.Next(n + 1);
+                                string value = Answers[k];
+                                Answers[k] = Answers[n];
+                                Answers[n] = value;
+                            }
+
                             for (int i = 0; i < Answers.Count; i++)
                             {
-                                //Random rnd = new Random();
-                                //int r = rnd.Next(Answers.Count);
                                 AnswerLB.Items.Add(Answers[i]);
                             }
                         }
@@ -126,11 +143,13 @@ namespace GroupProject
 
             if (questionsAsked == 10)
             {
-                MessageBox.Show($"Great job... you got through all 10 questions. Your end score is {accumulator}.");
+                MessageBox.Show($"Great job... you got through all 10 questions. Your score is {accumulator}!");
+                Application.Current.Shutdown();
             }
             else if (strikeAccum == 3)
             {
                 MessageBox.Show($"Game Over... you hit three strikes. Your score is {accumulator}!");
+                Application.Current.Shutdown();
             }
         }
     }
