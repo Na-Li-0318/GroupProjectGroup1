@@ -23,8 +23,6 @@ namespace GroupProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private object convert;
-
         Results question = new Results();
         string correctAnswer;
 
@@ -122,6 +120,7 @@ namespace GroupProject
                             var rand = new Random();
 
                             int n = Answers.Count;
+
                             while (n > 1)
                             {
                                 n--;
@@ -138,7 +137,9 @@ namespace GroupProject
                         }
                     }
                 }
+
                 break;
+
             } while (questionsAsked < 11 || strikeAccum < 3);
 
             if (questionsAsked == 10)
