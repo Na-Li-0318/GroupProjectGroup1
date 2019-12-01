@@ -84,6 +84,7 @@ namespace GroupProject
             {
                 if ((string)AnswerLB.SelectedValue == correctAnswer)
                 {
+                    CorrectLB.Items.Clear();
                     accumulator = scoreCorrect + accumulator;
                     CorrectLB.Items.Add(accumulator);
                     questionsAsked++;
