@@ -30,68 +30,86 @@
   <script src="modernizr.custom.js"></script>
 </head>
 <body>
-  <div class="deck-container">
+    <div class="deck-container">
 
-    <!-- Begin slides. Just make elements with a class of slide. -->
+        <!-- Begin slides. Just make elements with a class of slide. -->
 
-    <section class="slide">
-      <h1 align="center">MIS 3033 Group 1 Presentation</h1>
-    </section>
+        <section class="slide" id="start page">
+            <h1 >MIS 3033 Group 1 Presentation</h1>
+            <h4 >Bernard Ayikpa-Madison, Clayton Webb, David Allison, Na Li</h4>
+            <h5 >December 1, 2019</h5>
+        </section>
 
-    <section class="slide">
-      <h4 align="center">Bernard Ayikpa-Madison, Clayton Webb, David Allison, Na Li</h4>
-    </section>
+        <!--<section class="slide" id="page2">
+          <h1 align="center">why Deck.js</h1>
+        </section>-->
 
-    <section class="slide">
-      <h5 align="center">December 1, 2019</h5>
-    </section>
+        <!--<section class="slide">
+          <h5 align="center">December 1, 2019</h5>
+        </section>-->
+        <!--<iframe src="https:// mymedia.ou.edu/media/Kaltura+Capture+recording+-+December+1st+2019%2C+4A08A11+pm/1_frv5m7hr"</iframe>-->
+        <!-- End slides. -->
+        <!-- Begin extension snippets. Add or remove as needed. -->
+        <!-- deck.navigation snippet -->
+        <!--<div aria-role="navigation">
+            <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+            <a href="Page1.html" class="deck-next-link" title="Next">&#8594;</a>
+        </div>
 
-      <!--<iframe src="https:// mymedia.ou.edu/media/Kaltura+Capture+recording+-+December+1st+2019%2C+4A08A11+pm/1_frv5m7hr"</iframe>-->
+         deck.status snippet 
+        <p class="deck-status" aria-role="status">
+            <span class="deck-status-current"></span>
+            /
+            <span class="deck-status-total"></span>
+        </p>
 
-    <!-- End slides. -->
+         deck.goto snippet 
+        <form action="." method="get" class="goto-form">
+            <label for="goto-slide">Go to slide:</label>
+            <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+            <datalist id="goto-datalist"></datalist>
+            <input type="submit" value="Go">
+        </form>-->
 
-    <!-- Begin extension snippets. Add or remove as needed. -->
-
-    <!-- deck.navigation snippet -->
-    <div aria-role="navigation">
-      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-      <a href="Page1.html" class="deck-next-link" title="Next">&#8594;</a>
+        <!-- End extension snippets. -->
     </div>
 
-    <!-- deck.status snippet -->
+    <div aria-role="navigation">
+        <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+        <a href="Page1.html" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+     <!--deck.status snippet 
     <p class="deck-status" aria-role="status">
-      <span class="deck-status-current"></span>
-      /
-      <span class="deck-status-total"></span>
+        <span class="deck-status-current"></span>
+        /
+        <span class="deck-status-total"></span>
     </p>
 
-    <!-- deck.goto snippet -->
+     deck.goto snippet 
     <form action="." method="get" class="goto-form">
-      <label for="goto-slide">Go to slide:</label>
-      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
-      <datalist id="goto-datalist"></datalist>
-      <input type="submit" value="Go">
-    </form>
+        <label for="goto-slide">Go to slide:</label>
+        <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+        <datalist id="goto-datalist"></datalist>
+        <input type="submit" value="Go">
+    </form>-->
 
-    <!-- End extension snippets. -->
-  </div>
+    <!-- Required JS files. -->
+    <script src="jquery.min.js"></script>
+    <script src="core/deck.core.js"></script>
 
-<!-- Required JS files. -->
-<script src="jquery.min.js"></script>
-<script src="core/deck.core.js"></script>
+    <!-- Extension JS files. Add or remove as needed. -->
+    <script src="extensions/menu/deck.menu.js"></script>
+    <script src="extensions/goto/deck.goto.js"></script>
+    <script src="extensions/status/deck.status.js"></script>
+    <script src="extensions/navigation/deck.navigation.js"></script>
+    <script src="extensions/scale/deck.scale.js"></script>
 
-<!-- Extension JS files. Add or remove as needed. -->
-<script src="extensions/menu/deck.menu.js"></script>
-<script src="extensions/goto/deck.goto.js"></script>
-<script src="extensions/status/deck.status.js"></script>
-<script src="extensions/navigation/deck.navigation.js"></script>
-<script src="extensions/scale/deck.scale.js"></script>
-
-<!-- Initialize the deck. You can put this in an external file if desired. -->
-<script>
-  $(function() {
-    $.deck('.slide');
-  });
-</script>
+    <!-- Initialize the deck. You can put this in an external file if desired. -->
+    <script>
+        $(function () {
+            $.deck('.slide');
+        });
+    </script>
 </body>
 </html>

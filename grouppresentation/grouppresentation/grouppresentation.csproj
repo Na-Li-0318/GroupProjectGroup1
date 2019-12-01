@@ -68,8 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="boilerplate.html" />
+    <Content Include="deck.core.css" />
+    <Content Include="deck.core.js" />
     <Content Include="fade.css" />
     <Content Include="horizontal-slide.css" />
+    <Content Include="index.html" />
     <Content Include="jquery.min.js" />
     <Content Include="MIT-license.txt" />
     <Content Include="modernizr.custom.js" />
@@ -77,6 +80,7 @@
     <Content Include="Page1.html" />
     <Content Include="Page2.html" />
     <Content Include="Page3.html" />
+    <Content Include="print.css" />
     <Content Include="swiss.css" />
     <Content Include="vertical-slide.css" />
     <Content Include="web-2.0.css" />
@@ -91,11 +95,13 @@
     <Content Include="neon.scss" />
     <Content Include="fade.scss" />
     <Content Include="horizontal-slide.scss" />
+    <Content Include="deck.core.scss" />
     <None Include="packages.config" />
     <Content Include="README.md" />
     <Content Include="swiss.scss" />
     <Content Include="web-2.0.scss" />
     <Content Include="vertical-slide.scss" />
+    <Content Include="print.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
