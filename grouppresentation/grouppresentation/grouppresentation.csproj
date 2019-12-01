@@ -68,11 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="boilerplate.html" />
+    <Content Include="fade.css" />
+    <Content Include="horizontal-slide.css" />
     <Content Include="jquery.min.js" />
     <Content Include="MIT-license.txt" />
     <Content Include="modernizr.custom.js" />
     <Content Include="neon.css" />
+    <Content Include="Page1.html" />
+    <Content Include="Page2.html" />
+    <Content Include="Page3.html" />
     <Content Include="swiss.css" />
+    <Content Include="vertical-slide.css" />
     <Content Include="web-2.0.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -83,10 +89,13 @@
     <Content Include="CHANGELOG.md" />
     <Content Include="Makefile" />
     <Content Include="neon.scss" />
+    <Content Include="fade.scss" />
+    <Content Include="horizontal-slide.scss" />
     <None Include="packages.config" />
     <Content Include="README.md" />
     <Content Include="swiss.scss" />
     <Content Include="web-2.0.scss" />
+    <Content Include="vertical-slide.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
